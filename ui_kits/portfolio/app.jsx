@@ -168,12 +168,8 @@ const Home = ({ setRoute }) => (
         <h2 style={{ fontSize:28, fontWeight:500, letterSpacing:'-0.02em' }}>Selected work</h2>
         <ArrowLink onClick={()=>setRoute({name:'work'})}>see everything →</ArrowLink>
       </div>
-      <div style={{ display:'grid', gridTemplateColumns:'1.4fr 1fr', gap:20, marginBottom:20 }}>
-        <ProjectCard p={PROJECTS[0]} size="lg" onOpen={p=>setRoute({name:'project', slug:p.slug})} />
-        <ProjectCard p={PROJECTS[1]} size="lg" onOpen={p=>setRoute({name:'project', slug:p.slug})} />
-      </div>
-      <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr 1fr', gap:20 }}>
-        {PROJECTS.slice(2,5).map(p => <ProjectCard key={p.slug} p={p} onOpen={pp=>setRoute({name:'project', slug:pp.slug})} />)}
+      <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fill,minmax(300px,1fr))', gap:20 }}>
+        {PROJECTS.map(p => <ProjectCard key={p.slug} p={p} size="lg" onOpen={pp=>setRoute({name:'project', slug:pp.slug})} />)}
       </div>
     </section>
 
