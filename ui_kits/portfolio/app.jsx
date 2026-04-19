@@ -204,23 +204,15 @@ const Home = ({ setRoute }) => (
   </main>
 );
 
-const Work = ({ setRoute }) => {
-  const [filter,setFilter] = useState('all');
-  const tags = ['all','data-viz','react','design','analytics'];
-  const shown = useMemo(() => filter==='all' ? PROJECTS : PROJECTS.filter(p => p.tags.includes(filter)), [filter]);
-  return (
-    <main style={{ padding:'64px 48px', maxWidth:1200, margin:'0 auto' }}>
-      <Eyebrow>Work · {PROJECTS.length} projects</Eyebrow>
-      <h1 style={{ fontSize:56, fontWeight:400, letterSpacing:'-0.02em', marginTop:14, color:'var(--fg-1)' }}>Everything, chronologically.</h1>
-      <div style={{ display:'flex', gap:8, margin:'40px 0', flexWrap:'wrap' }}>
-        {tags.map(t => <Chip key={t} active={filter===t} onClick={()=>setFilter(t)}>{t}</Chip>)}
-      </div>
-      <div style={{ display:'grid', gridTemplateColumns:'repeat(3,1fr)', gap:24 }}>
-        {shown.map(p => <ProjectCard key={p.slug} p={p} onOpen={pp=>setRoute({name:'project', slug:pp.slug})} />)}
-      </div>
-    </main>
-  );
-};
+const Work = ({ setRoute }) => (
+  <main style={{ padding:'64px 48px', maxWidth:1200, margin:'0 auto' }}>
+    <Eyebrow>Work · {PROJECTS.length} projects</Eyebrow>
+    <h1 style={{ fontSize:56, fontWeight:400, letterSpacing:'-0.02em', marginTop:14, color:'var(--fg-1)' }}>Everything, chronologically.</h1>
+    <div style={{ display:'grid', gridTemplateColumns:'repeat(3,1fr)', gap:24, marginTop:40 }}>
+      {PROJECTS.map(p => <ProjectCard key={p.slug} p={p} onOpen={pp=>setRoute({name:'project', slug:pp.slug})} />)}
+    </div>
+  </main>
+);
 
 const BarChart = () => {
   const bars = [30,42,55,48,70,62,88,76,94];
