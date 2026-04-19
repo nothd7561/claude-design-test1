@@ -114,23 +114,23 @@ const Footer = () => (
 const PROJECTS = [
   { slug:'llm-comparison', year:2026, kind:'Data Viz · Tool', title:'LLM Comparison Tool',
     blurb:'Compare any two language models across benchmarks, speed, latency, pricing, and context length. Animated bar charts and radar overlay.',
-    tags:['data-viz','react','design-system'], accent:'var(--gradient-accent-soft)', featured:true,
+    tags:['data-viz','react'], accent:'var(--gradient-accent-soft)', featured:true,
     link:'https://nothd7561.github.io/claude-design-test1/comparison/' },
   { slug:'broadband', year:2025, kind:'Case study', title:'Broadband access & remote work',
     blurb:'County-level broadband access mapped onto remote-work uptake, pulled from FCC + ACS.',
-    tags:['data-viz','python','choropleth'], accent:'linear-gradient(135deg,#FFE2D8,#FFD4C4)' },
+    tags:['data-viz','analytics'], accent:'linear-gradient(135deg,#FFE2D8,#FFD4C4)' },
   { slug:'reading', year:2024, kind:'Dashboard', title:'Three years of reading',
     blurb:'A small dashboard tracking pace, genre, and abandonment across 2022–2024.',
-    tags:['analytics','observable'], accent:'linear-gradient(135deg,#E9DAFE,#D9E4FF)' },
+    tags:['analytics'], accent:'linear-gradient(135deg,#E9DAFE,#D9E4FF)' },
   { slug:'typography', year:2023, kind:'Experiment', title:'Grotesk variations',
     blurb:'Teaching myself variable fonts by animating a grotesque along three axes.',
-    tags:['graphic design','typography'], accent:'linear-gradient(135deg,#D9E4FF,#C4DBFF)' },
+    tags:['design'], accent:'linear-gradient(135deg,#D9E4FF,#C4DBFF)' },
   { slug:'census', year:2023, kind:'Analysis', title:'Notes on the 2020 census',
     blurb:'A reading of the undercount — with a gentle argument for smaller charts.',
-    tags:['writing','data-viz'], accent:'linear-gradient(135deg,#F2F1EC,#E6E4DD)' },
+    tags:['data-viz','analytics'], accent:'linear-gradient(135deg,#F2F1EC,#E6E4DD)' },
   { slug:'weather', year:2022, kind:'Sketch', title:'A year of weather',
     blurb:'One tile per day. The tile is a gradient. That\u2019s the whole piece.',
-    tags:['graphic design'], accent:'linear-gradient(135deg,#FFE2D8,#E9DAFE,#D9E4FF)' },
+    tags:['design'], accent:'linear-gradient(135deg,#FFE2D8,#E9DAFE,#D9E4FF)' },
 ];
 
 // ---------- Project card ----------
@@ -206,7 +206,7 @@ const Home = ({ setRoute }) => (
 
 const Work = ({ setRoute }) => {
   const [filter,setFilter] = useState('all');
-  const tags = ['all','data-viz','graphic design','analytics','writing'];
+  const tags = ['all','data-viz','react','design','analytics'];
   const shown = useMemo(() => filter==='all' ? PROJECTS : PROJECTS.filter(p => p.tags.includes(filter)), [filter]);
   return (
     <main style={{ padding:'64px 48px', maxWidth:1200, margin:'0 auto' }}>
