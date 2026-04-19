@@ -11,7 +11,7 @@ const Mark = ({ size = 20 }) => (
       background:'var(--gradient-accent)',
       boxShadow:'0 4px 12px -4px rgba(184,107,255,0.35)'
     }}/>
-    <span style={{ fontWeight:500, letterSpacing:'-0.01em', color:'var(--fg-1)'}}>Comparison Project</span>
+    <span style={{ fontWeight:500, letterSpacing:'-0.01em', color:'var(--fg-1)'}}>Lucas Lu</span>
   </span>
 );
 
@@ -101,23 +101,24 @@ const Footer = () => (
     display:'flex', justifyContent:'space-between', alignItems:'center',
     fontSize:13, color:'var(--fg-3)', marginTop:96,
   }}>
-    <span>© 2026 — a quiet portfolio</span>
+    <span>© 2026 — Lucas Lu</span>
     <span style={{display:'flex', gap:20, alignItems:'center'}}>
-      <a style={{color:'var(--fg-2)', textDecoration:'none', display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer'}}><GithubIcon/> github</a>
-      <a style={{color:'var(--fg-2)', textDecoration:'none', display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer'}}><MailIcon/> email</a>
-      <a style={{color:'var(--fg-2)', textDecoration:'none', display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer'}}><ExternalIcon/> read.cv</a>
+      <a href="https://github.com/nothd7561" target="_blank" rel="noopener noreferrer" style={{color:'var(--fg-2)', textDecoration:'none', display:'inline-flex', alignItems:'center', gap:6}}><GithubIcon/> github</a>
+      <a href="mailto:ll207@rice.edu" style={{color:'var(--fg-2)', textDecoration:'none', display:'inline-flex', alignItems:'center', gap:6}}><MailIcon/> email</a>
+      <a href="https://www.linkedin.com/in/lucas-lu6978" target="_blank" rel="noopener noreferrer" style={{color:'var(--fg-2)', textDecoration:'none', display:'inline-flex', alignItems:'center', gap:6}}><ExternalIcon/> linkedin</a>
     </span>
   </footer>
 );
 
 // ---------- Data ----------
 const PROJECTS = [
+  { slug:'llm-comparison', year:2026, kind:'Data Viz · Tool', title:'LLM Comparison Tool',
+    blurb:'Compare any two language models across benchmarks, speed, latency, pricing, and context length. Animated bar charts and radar overlay.',
+    tags:['data-viz','react','design-system'], accent:'var(--gradient-accent-soft)', featured:true,
+    link:'https://nothd7561.github.io/claude-design-test1/comparison/' },
   { slug:'broadband', year:2025, kind:'Case study', title:'Broadband access & remote work',
     blurb:'County-level broadband access mapped onto remote-work uptake, pulled from FCC + ACS.',
-    tags:['data-viz','python','choropleth'], accent:'var(--gradient-accent-soft)', featured:true },
-  { slug:'trees', year:2024, kind:'Visual essay', title:'The color of city trees',
-    blurb:'A photographic + chromatic survey of street trees across four neighborhoods.',
-    tags:['graphic design','d3'], accent:'linear-gradient(135deg,#FFE2D8,#FFD4C4)' },
+    tags:['data-viz','python','choropleth'], accent:'linear-gradient(135deg,#FFE2D8,#FFD4C4)' },
   { slug:'reading', year:2024, kind:'Dashboard', title:'Three years of reading',
     blurb:'A small dashboard tracking pace, genre, and abandonment across 2022–2024.',
     tags:['analytics','observable'], accent:'linear-gradient(135deg,#E9DAFE,#D9E4FF)' },
@@ -164,12 +165,12 @@ const ProjectCard = ({ p, onOpen, size='md' }) => {
 const Home = ({ setRoute }) => (
   <main>
     <section style={{ padding:'96px 48px 64px', maxWidth:1200, margin:'0 auto' }}>
-      <Eyebrow>Portfolio · 2023 – 2026</Eyebrow>
+      <Eyebrow>Lucas Lu · Rice University · 2026</Eyebrow>
       <h1 style={{ fontSize:80, fontWeight:300, letterSpacing:'-0.03em', lineHeight:1.02, marginTop:20, maxWidth:'14em', color:'var(--fg-1)' }}>
-        A quiet portfolio<br/>of <span className="gradient-text">data, analysis,</span><br/>and graphic design.
+        Projects built at the seam of <span className="gradient-text">data, design,</span><br/>and engineering.
       </h1>
       <p style={{ fontSize:18, color:'var(--fg-2)', maxWidth:'42em', marginTop:32, lineHeight:1.65 }}>
-        I&rsquo;m a student working at the seam of analytics and design. This is a small collection of studies — mostly about how data feels when it&rsquo;s shown carefully.
+        I&rsquo;m a student at Rice studying data science and design. This is a collection of interactive tools and visual experiments — mostly about how data feels when it&rsquo;s shown carefully.
       </p>
       <div style={{ display:'flex', gap:12, marginTop:40 }}>
         <Button onClick={()=>setRoute({name:'work'})}>See the work →</Button>
@@ -283,10 +284,10 @@ const About = () => (
           between numbers and images.
         </h1>
         <p style={{ marginTop:32, fontSize:17, lineHeight:1.65 }}>
-          I&rsquo;m studying data science and graphic design at Rice. This portfolio is the place where those two habits talk to each other.
+          I&rsquo;m Lucas Lu — a student at Rice University studying data science and design. This portfolio is where those two habits talk to each other.
         </p>
         <p style={{ marginTop:16, fontSize:17, lineHeight:1.65 }}>
-          I&rsquo;m interested in the kind of analysis that doesn&rsquo;t shout, and the kind of design that gets out of the way.
+          I build interactive tools and visual experiments. I&rsquo;m drawn to the kind of engineering that feels quiet, and the kind of design that gets out of its own way.
         </p>
       </div>
       <div style={{ aspectRatio:'4/5', background:'var(--gradient-accent-soft)', borderRadius:'var(--r-lg)' }}/>
@@ -296,10 +297,10 @@ const About = () => (
       <Eyebrow>Toolkit</Eyebrow>
       <div style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:'24px 48px'}}>
         {[
+          ['Engineering','React · JavaScript · HTML · CSS'],
           ['Data','Python · pandas · scikit-learn · SQL'],
-          ['Visualization','D3 · Observable · Plot · matplotlib'],
-          ['Design','Figma · Illustrator · After Effects'],
-          ['Writing','Obsidian · Notion · a surprising amount of paper'],
+          ['Visualization','D3 · Observable · matplotlib'],
+          ['Design','Figma · design systems · typography'],
         ].map(([k,v]) => <div key={k}><div style={{fontSize:14,fontWeight:500,color:'var(--fg-1)'}}>{k}</div><div style={{marginTop:6,fontSize:14,color:'var(--fg-3)',lineHeight:1.7}}>{v}</div></div>)}
       </div>
     </div>
@@ -308,11 +309,11 @@ const About = () => (
       <Eyebrow>Timeline</Eyebrow>
       <div>
         {[
-          ['2026','senior thesis · a visual essay on the census'],
-          ['2025','summer internship · analytics at a small nonprofit'],
-          ['2024','started this portfolio'],
-          ['2023','first D3 project; first time it felt easy'],
-          ['2022','picked up graphic design on a whim'],
+          ['2026','built the LLM comparison tool · this portfolio'],
+          ['2025','Rice University · studying data science & design'],
+          ['2024','first real data viz project'],
+          ['2023','started taking design seriously'],
+          ['2022','wrote first lines of code'],
         ].map(([y,t]) => (
           <div key={y} style={{display:'grid', gridTemplateColumns:'80px 1fr', padding:'14px 0', borderBottom:'1px solid var(--border-1)'}}>
             <span style={{fontFamily:'var(--font-mono)', fontSize:13, color:'var(--fg-3)'}}>{y}</span>
@@ -332,7 +333,7 @@ const Contact = () => {
       <Eyebrow>Contact</Eyebrow>
       <h1 style={{ fontSize:56, fontWeight:400, letterSpacing:'-0.02em', marginTop:14 }}>Say hello.</h1>
       <p style={{ fontSize:18, color:'var(--fg-2)', marginTop:20, maxWidth:'34em', lineHeight:1.6 }}>
-        I&rsquo;m looking for internships in data-viz, analytics, or editorial design for summer 2026. A short note is the best way in.
+        I&rsquo;m a student at Rice and I&rsquo;m looking for internships in data, design, or frontend engineering. A short note is the best way in.
       </p>
       {sent ? (
         <div style={{ marginTop:56, padding:'48px 40px', background:'var(--bg-2)', borderRadius:'var(--r-lg)' }}>
@@ -357,8 +358,9 @@ const Contact = () => {
       )}
       <hr className="rule" style={{margin:'80px 0 32px'}}/>
       <div style={{ display:'flex', gap:32, fontSize:15, color:'var(--fg-2)' }}>
-        <a style={{display:'inline-flex',alignItems:'center',gap:8,color:'inherit',textDecoration:'none',cursor:'pointer'}}><MailIcon/> hello@comparison.project</a>
-        <a style={{display:'inline-flex',alignItems:'center',gap:8,color:'inherit',textDecoration:'none',cursor:'pointer'}}><GithubIcon/> github.com/comparisonproject</a>
+        <a href="mailto:ll207@rice.edu" style={{display:'inline-flex',alignItems:'center',gap:8,color:'inherit',textDecoration:'none'}}><MailIcon/> ll207@rice.edu</a>
+        <a href="https://github.com/nothd7561" target="_blank" rel="noopener noreferrer" style={{display:'inline-flex',alignItems:'center',gap:8,color:'inherit',textDecoration:'none'}}><GithubIcon/> github.com/nothd7561</a>
+        <a href="https://www.linkedin.com/in/lucas-lu6978" target="_blank" rel="noopener noreferrer" style={{display:'inline-flex',alignItems:'center',gap:8,color:'inherit',textDecoration:'none'}}><ExternalIcon/> linkedin</a>
       </div>
     </main>
   );
