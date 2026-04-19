@@ -69,14 +69,14 @@ const Nav = ({ route, setRoute }) => {
     ['writing','writing'], ['contact','contact']
   ];
   return (
-    <nav style={{
+    <nav className="port-nav" style={{
       display:'flex', alignItems:'center', justifyContent:'space-between',
       padding:'22px 48px', borderBottom:'1px solid var(--border-1)',
       position:'sticky', top:0, zIndex:10,
       background:'rgba(250,250,247,0.85)', backdropFilter:'blur(12px)',
     }}>
       <a onClick={()=>setRoute({name:'home'})} style={{cursor:'pointer'}}><Mark /></a>
-      <div style={{ display:'flex', gap:28 }}>
+      <div className="port-nav-links" style={{ display:'flex', gap:28 }}>
         {items.map(([label,key]) => (
           <a key={key} onClick={()=>setRoute({name:key})} style={{
             color: route.name===key ? 'var(--fg-1)':'var(--fg-2)', textDecoration:'none', fontSize:14,
@@ -90,19 +90,19 @@ const Nav = ({ route, setRoute }) => {
           </a>
         ))}
       </div>
-      <Button variant="secondary" onClick={()=>setRoute({name:'contact'})}>Get in touch</Button>
+      <div className="port-nav-btn"><Button variant="secondary" onClick={()=>setRoute({name:'contact'})}>Get in touch</Button></div>
     </nav>
   );
 };
 
 const Footer = () => (
-  <footer style={{
+  <footer className="port-footer" style={{
     padding:'32px 48px', borderTop:'1px solid var(--border-1)',
     display:'flex', justifyContent:'space-between', alignItems:'center',
     fontSize:13, color:'var(--fg-3)', marginTop:96,
   }}>
     <span>© 2026 — Lucas Lu</span>
-    <span style={{display:'flex', gap:20, alignItems:'center'}}>
+    <span className="port-footer-links" style={{display:'flex', gap:20, alignItems:'center'}}>
       <a href="https://github.com/nothd7561" target="_blank" rel="noopener noreferrer" style={{color:'var(--fg-2)', textDecoration:'none', display:'inline-flex', alignItems:'center', gap:6}}><GithubIcon/> github</a>
       <a href="mailto:ll207@rice.edu" style={{color:'var(--fg-2)', textDecoration:'none', display:'inline-flex', alignItems:'center', gap:6}}><MailIcon/> email</a>
       <a href="https://www.linkedin.com/in/lucas-lu6978" target="_blank" rel="noopener noreferrer" style={{color:'var(--fg-2)', textDecoration:'none', display:'inline-flex', alignItems:'center', gap:6}}><ExternalIcon/> linkedin</a>
@@ -149,12 +149,12 @@ const ProjectCard = ({ p, onOpen, size='md' }) => {
 // ---------- Screens ----------
 const Home = ({ setRoute }) => (
   <main>
-    <section style={{ padding:'96px 48px 64px', maxWidth:1200, margin:'0 auto' }}>
+    <section className="port-section" style={{ padding:'96px 48px 64px', maxWidth:1200, margin:'0 auto' }}>
       <Eyebrow>Lucas Lu · Rice University · 2026</Eyebrow>
-      <h1 style={{ fontSize:80, fontWeight:300, letterSpacing:'-0.03em', lineHeight:1.02, marginTop:20, maxWidth:'14em', color:'var(--fg-1)' }}>
+      <h1 className="port-hero-title" style={{ fontSize:80, fontWeight:300, letterSpacing:'-0.03em', lineHeight:1.02, marginTop:20, maxWidth:'14em', color:'var(--fg-1)' }}>
         Projects built at the seam of <span className="gradient-text">data, design,</span><br/>and engineering.
       </h1>
-      <p style={{ fontSize:18, color:'var(--fg-2)', maxWidth:'42em', marginTop:32, lineHeight:1.65 }}>
+      <p className="port-hero-sub" style={{ fontSize:18, color:'var(--fg-2)', maxWidth:'42em', marginTop:32, lineHeight:1.65 }}>
         I&rsquo;m a student at Rice studying data science and design. This is a collection of interactive tools and visual experiments — mostly about how data feels when it&rsquo;s shown carefully.
       </p>
       <div style={{ display:'flex', gap:12, marginTop:40 }}>
@@ -163,7 +163,7 @@ const Home = ({ setRoute }) => (
       </div>
     </section>
 
-    <section style={{ padding:'64px 48px', maxWidth:1200, margin:'0 auto' }}>
+    <section className="port-section" style={{ padding:'64px 48px', maxWidth:1200, margin:'0 auto' }}>
       <div style={{ display:'flex', justifyContent:'space-between', alignItems:'baseline', marginBottom:32 }}>
         <h2 style={{ fontSize:28, fontWeight:500, letterSpacing:'-0.02em' }}>Selected work</h2>
         <ArrowLink onClick={()=>setRoute({name:'work'})}>see everything →</ArrowLink>
@@ -173,9 +173,9 @@ const Home = ({ setRoute }) => (
       </div>
     </section>
 
-    <section style={{ padding:'64px 48px', maxWidth:1200, margin:'0 auto' }}>
+    <section className="port-section" style={{ padding:'64px 48px', maxWidth:1200, margin:'0 auto' }}>
       <hr className="rule" />
-      <div style={{ display:'grid', gridTemplateColumns:'1fr 2fr', gap:48, paddingTop:48 }}>
+      <div className="port-grid-quote" style={{ display:'grid', gridTemplateColumns:'1fr 2fr', gap:48, paddingTop:48 }}>
         <Eyebrow>What I&rsquo;m after</Eyebrow>
         <p style={{ fontSize:22, color:'var(--fg-1)', lineHeight:1.5, fontWeight:400, letterSpacing:'-0.01em', maxWidth:'28em' }}>
           Most of my work is a small argument that data is more convincing when it&rsquo;s <em>quieter</em>. I&rsquo;m drawn to the moment a chart stops explaining and starts noticing.
@@ -190,13 +190,13 @@ const Work = ({ setRoute }) => {
   const tags = ['all', 'data-viz', 'react'];
   const shown = useMemo(() => filter === 'all' ? PROJECTS : PROJECTS.filter(p => p.tags.includes(filter)), [filter]);
   return (
-    <main style={{ padding:'64px 48px', maxWidth:1200, margin:'0 auto' }}>
+    <main className="port-section" style={{ padding:'64px 48px', maxWidth:1200, margin:'0 auto' }}>
       <Eyebrow>Work · {PROJECTS.length} project</Eyebrow>
       <h1 style={{ fontSize:56, fontWeight:400, letterSpacing:'-0.02em', marginTop:14, color:'var(--fg-1)' }}>Everything, chronologically.</h1>
       <div style={{ display:'flex', gap:8, margin:'40px 0', flexWrap:'wrap' }}>
         {tags.map(t => <Chip key={t} active={filter===t} onClick={()=>setFilter(t)}>{t}</Chip>)}
       </div>
-      <div style={{ display:'grid', gridTemplateColumns:'repeat(3,1fr)', gap:24 }}>
+      <div className="port-grid-3" style={{ display:'grid', gridTemplateColumns:'repeat(3,1fr)', gap:24 }}>
         {shown.map(p => <ProjectCard key={p.slug} p={p} onOpen={pp=>setRoute({name:'project', slug:pp.slug})} />)}
       </div>
     </main>
@@ -228,7 +228,7 @@ const Project = ({ slug, setRoute }) => {
       <section style={{ padding:'48px 48px', maxWidth:1200, margin:'0 auto' }}>
         <div style={{ height:440, background:p.accent, borderRadius:'var(--r-lg)' }}/>
       </section>
-      <section style={{ padding:'0 48px 64px', maxWidth:1000, margin:'0 auto', display:'grid', gridTemplateColumns:'200px 1fr', gap:64 }}>
+      <section className="port-section port-grid-sidebar" style={{ padding:'0 48px 64px', maxWidth:1000, margin:'0 auto', display:'grid', gridTemplateColumns:'200px 1fr', gap:64 }}>
         <div>
           <Eyebrow>Tools</Eyebrow>
           <div style={{ marginTop:8, fontSize:14, color:'var(--fg-2)', lineHeight:1.9 }}>
@@ -255,8 +255,8 @@ const Project = ({ slug, setRoute }) => {
 };
 
 const About = () => (
-  <main style={{ padding:'64px 48px', maxWidth:1000, margin:'0 auto' }}>
-    <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:64, alignItems:'center' }}>
+  <main className="port-section" style={{ padding:'64px 48px', maxWidth:1000, margin:'0 auto' }}>
+    <div className="port-grid-2" style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:64, alignItems:'center' }}>
       <div>
         <Eyebrow>About</Eyebrow>
         <h1 style={{ fontSize:48, fontWeight:400, letterSpacing:'-0.02em', marginTop:14, lineHeight:1.1 }}>
@@ -271,12 +271,12 @@ const About = () => (
           I build interactive tools and visual experiments. I&rsquo;m drawn to the kind of engineering that feels quiet, and the kind of design that gets out of its own way.
         </p>
       </div>
-      <div style={{ aspectRatio:'4/5', background:'var(--gradient-accent-soft)', borderRadius:'var(--r-lg)' }}/>
+      <div className="port-about-img" style={{ aspectRatio:'4/5', background:'var(--gradient-accent-soft)', borderRadius:'var(--r-lg)' }}/>
     </div>
     <hr className="rule" style={{margin:'80px 0 48px'}}/>
-    <div style={{ display:'grid', gridTemplateColumns:'200px 1fr', gap:64 }}>
+    <div className="port-grid-sidebar" style={{ display:'grid', gridTemplateColumns:'200px 1fr', gap:64 }}>
       <Eyebrow>Toolkit</Eyebrow>
-      <div style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:'24px 48px'}}>
+      <div className="port-grid-2" style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:'24px 48px'}}>
         {[
           ['Engineering','React · JavaScript · HTML · CSS'],
           ['Data','Python · pandas · scikit-learn · SQL'],
@@ -286,7 +286,7 @@ const About = () => (
       </div>
     </div>
     <hr className="rule" style={{margin:'80px 0 48px'}}/>
-    <div style={{ display:'grid', gridTemplateColumns:'200px 1fr', gap:64 }}>
+    <div className="port-grid-sidebar" style={{ display:'grid', gridTemplateColumns:'200px 1fr', gap:64 }}>
       <Eyebrow>Timeline</Eyebrow>
       <div>
         {[
@@ -324,7 +324,7 @@ const Contact = () => {
           </p>
         </div>
       ) : (
-        <form style={{ marginTop:56, display:'grid', gridTemplateColumns:'1fr 1fr', gap:'20px 24px' }}
+        <form className="port-grid-2" style={{ marginTop:56, display:'grid', gridTemplateColumns:'1fr 1fr', gap:'20px 24px' }}
               onSubmit={e => { e.preventDefault(); setSent(true); }}>
           <Field label="Name" value={form.name} onChange={v=>setForm({...form,name:v})} />
           <Field label="Email" value={form.email} onChange={v=>setForm({...form,email:v})} />
@@ -338,7 +338,7 @@ const Contact = () => {
         </form>
       )}
       <hr className="rule" style={{margin:'80px 0 32px'}}/>
-      <div style={{ display:'flex', gap:32, fontSize:15, color:'var(--fg-2)' }}>
+      <div className="port-contact-links" style={{ display:'flex', gap:32, fontSize:15, color:'var(--fg-2)' }}>
         <a href="mailto:ll207@rice.edu" style={{display:'inline-flex',alignItems:'center',gap:8,color:'inherit',textDecoration:'none'}}><MailIcon/> ll207@rice.edu</a>
         <a href="https://github.com/nothd7561" target="_blank" rel="noopener noreferrer" style={{display:'inline-flex',alignItems:'center',gap:8,color:'inherit',textDecoration:'none'}}><GithubIcon/> github.com/nothd7561</a>
         <a href="https://www.linkedin.com/in/lucas-lu6978" target="_blank" rel="noopener noreferrer" style={{display:'inline-flex',alignItems:'center',gap:8,color:'inherit',textDecoration:'none'}}><ExternalIcon/> linkedin</a>

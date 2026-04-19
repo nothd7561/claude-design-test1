@@ -8,6 +8,23 @@
   <style>
     body { margin: 0; }
     em { font-style: italic; color: var(--fg-1); }
+
+    @media (max-width: 768px) {
+      .port-nav          { padding: 16px 20px !important; }
+      .port-nav-links    { display: none !important; }
+      .port-nav-btn      { display: none !important; }
+      .port-section      { padding-left: 20px !important; padding-right: 20px !important; }
+      .port-hero-title   { font-size: 40px !important; line-height: 1.08 !important; }
+      .port-hero-sub     { font-size: 16px !important; }
+      .port-grid-2       { grid-template-columns: 1fr !important; gap: 32px !important; }
+      .port-grid-3       { grid-template-columns: 1fr !important; }
+      .port-grid-sidebar { grid-template-columns: 1fr !important; gap: 32px !important; }
+      .port-grid-quote   { grid-template-columns: 1fr !important; gap: 16px !important; }
+      .port-about-img    { display: none !important; }
+      .port-contact-links { flex-direction: column !important; gap: 14px !important; }
+      .port-footer       { flex-direction: column !important; gap: 10px !important; padding: 24px 20px !important; }
+      .port-footer-links { flex-direction: column !important; gap: 12px !important; }
+    }
   </style>
   <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
