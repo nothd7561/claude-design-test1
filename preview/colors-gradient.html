@@ -1,0 +1,36 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Colors — Gradient accent</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body{margin:0;padding:24px 28px;background:var(--bg-1);font-family:var(--font-sans);}
+  .h{font-size:11px;color:var(--fg-3);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:12px;}
+  .row{display:grid;grid-template-columns:1.2fr 1.2fr 0.8fr;gap:12px;}
+  .card{border-radius:var(--r-md);overflow:hidden;border:1px solid var(--border-1);}
+  .fill{height:96px;display:flex;align-items:flex-end;padding:10px 12px;}
+  .meta{padding:8px 12px;background:var(--bg-1);}
+  .name{font-size:12px;font-weight:500;color:var(--fg-1);}
+  .hex{font-family:var(--font-mono);font-size:10px;color:var(--fg-3);margin-top:2px;}
+  .tag{font-size:10px;font-family:var(--font-mono);color:rgba(255,255,255,0.85);}
+  .stops{display:flex;height:96px;}
+  .stops > div{flex:1;display:flex;align-items:flex-end;padding:8px;color:#fff;font-family:var(--font-mono);font-size:10px;}
+</style></head>
+<body>
+  <div class="h">Gradient accent · the one moment of color</div>
+  <div class="row">
+    <div class="card">
+      <div class="fill" style="background:var(--gradient-accent)"><span class="tag">linear-gradient 135°</span></div>
+      <div class="meta"><div class="name">--gradient-accent</div><div class="hex">#FF7A59 → #B86BFF → #5B8CFF</div></div>
+    </div>
+    <div class="card">
+      <div class="fill" style="background:var(--gradient-accent-soft)"><span class="tag" style="color:var(--slate)">soft · card fills</span></div>
+      <div class="meta"><div class="name">--gradient-accent-soft</div><div class="hex">#FFE2D8 → #E9DAFE → #D9E4FF</div></div>
+    </div>
+    <div class="card">
+      <div class="stops">
+        <div style="background:#FF7A59">#FF7A59</div>
+        <div style="background:#B86BFF">#B86BFF</div>
+        <div style="background:#5B8CFF">#5B8CFF</div>
+      </div>
+      <div class="meta"><div class="name">Stops</div><div class="hex">coral · lilac · sky</div></div>
+    </div>
+  </div>
+</body></html>

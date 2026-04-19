@@ -1,0 +1,29 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Spacing — Radii & shadows</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body{margin:0;padding:24px 28px;background:var(--bg-1);font-family:var(--font-sans);}
+  .h{font-size:11px;color:var(--fg-3);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:12px;}
+  .grid{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;}
+  .tile{height:72px;background:var(--bg-2);display:flex;align-items:flex-end;padding:8px;}
+  .lbl{font-family:var(--font-mono);font-size:10px;color:var(--fg-3);margin-top:6px;text-align:center;}
+  .shadow-row{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:20px;}
+  .sh-tile{height:72px;border-radius:var(--r-md);background:var(--paper);}
+</style></head>
+<body>
+  <div class="h">Radii</div>
+  <div class="grid">
+    <div><div class="tile" style="border-radius:4px"></div><div class="lbl">--r-xs · 4</div></div>
+    <div><div class="tile" style="border-radius:8px"></div><div class="lbl">--r-sm · 8</div></div>
+    <div><div class="tile" style="border-radius:12px"></div><div class="lbl">--r-md · 12</div></div>
+    <div><div class="tile" style="border-radius:20px"></div><div class="lbl">--r-lg · 20</div></div>
+    <div><div class="tile" style="border-radius:32px"></div><div class="lbl">--r-xl · 32</div></div>
+    <div><div class="tile" style="border-radius:999px"></div><div class="lbl">--r-pill</div></div>
+  </div>
+  <div class="h" style="margin-top:22px">Elevation</div>
+  <div class="shadow-row">
+    <div><div class="sh-tile" style="box-shadow:none;border:1px solid var(--border-1)"></div><div class="lbl">flat · rest</div></div>
+    <div><div class="sh-tile" style="box-shadow:var(--shadow-1)"></div><div class="lbl">--shadow-1</div></div>
+    <div><div class="sh-tile" style="box-shadow:var(--shadow-2)"></div><div class="lbl">--shadow-2 · hover</div></div>
+    <div><div class="sh-tile" style="box-shadow:var(--shadow-glow)"></div><div class="lbl">--shadow-glow · featured</div></div>
+  </div>
+</body></html>

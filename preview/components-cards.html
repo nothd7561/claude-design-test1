@@ -1,0 +1,27 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Components — Cards</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body{margin:0;padding:24px 28px;background:var(--bg-1);font-family:var(--font-sans);display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;}
+  .card{background:var(--bg-1);border-radius:var(--r-md);overflow:hidden;border:1px solid var(--border-1);display:flex;flex-direction:column;}
+  .thumb{height:110px;background:var(--gradient-accent-soft);}
+  .card.featured .thumb{background:var(--gradient-accent);}
+  .body{padding:14px 16px;}
+  .eyebrow{font-size:11px;color:var(--fg-3);letter-spacing:0.08em;text-transform:uppercase;}
+  .title{font-size:16px;font-weight:500;color:var(--fg-1);margin-top:6px;letter-spacing:-0.01em;}
+  .meta{font-size:12px;color:var(--fg-3);margin-top:8px;}
+  .card.hover{box-shadow:var(--shadow-2);transform:translateY(-2px);}
+  .card.featured{box-shadow:var(--shadow-glow);}
+  .lbl{position:absolute;top:-10px;left:10px;font-family:var(--font-mono);font-size:9px;padding:2px 6px;background:var(--ink);color:var(--paper);border-radius:3px;letter-spacing:0.04em;}
+  .wrap{position:relative;}
+</style></head>
+<body>
+  <div class="wrap"><span class="lbl">rest</span>
+    <div class="card"><div class="thumb"></div><div class="body"><div class="eyebrow">Case study · 2025</div><div class="title">Broadband access study</div><div class="meta">Choropleth · Python · 12k rows</div></div></div>
+  </div>
+  <div class="wrap"><span class="lbl">hover</span>
+    <div class="card hover"><div class="thumb"></div><div class="body"><div class="eyebrow">Visual essay · 2024</div><div class="title">Color of city trees</div><div class="meta">D3 · Observable</div></div></div>
+  </div>
+  <div class="wrap"><span class="lbl">featured</span>
+    <div class="card featured"><div class="thumb"></div><div class="body"><div class="eyebrow">Featured · 2026</div><div class="title">A quiet portfolio</div><div class="meta">Design system · HTML/CSS</div></div></div>
+  </div>
+</body></html>

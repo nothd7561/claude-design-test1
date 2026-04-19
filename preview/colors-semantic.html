@@ -1,0 +1,20 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Colors — Semantic</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body{margin:0;padding:24px 28px;background:var(--bg-1);font-family:var(--font-sans);}
+  .h{font-size:11px;color:var(--fg-3);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:12px;}
+  .row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+  .tok{display:flex;align-items:center;gap:12px;padding:14px;border-radius:var(--r-md);background:var(--bg-2);}
+  .dot{width:28px;height:28px;border-radius:999px;flex-shrink:0;}
+  .lbl{font-size:12px;font-weight:500;color:var(--fg-1);}
+  .hex{font-family:var(--font-mono);font-size:10px;color:var(--fg-3);margin-top:2px;}
+</style></head>
+<body>
+  <div class="h">Semantic colors · muted, not shouty</div>
+  <div class="row">
+    <div class="tok"><div class="dot" style="background:#4F8A5B"></div><div><div class="lbl">success</div><div class="hex">#4F8A5B</div></div></div>
+    <div class="tok"><div class="dot" style="background:#C08A2E"></div><div><div class="lbl">warning</div><div class="hex">#C08A2E</div></div></div>
+    <div class="tok"><div class="dot" style="background:#B84A3E"></div><div><div class="lbl">danger</div><div class="hex">#B84A3E</div></div></div>
+    <div class="tok"><div class="dot" style="background:#B86BFF"></div><div><div class="lbl">focus ring</div><div class="hex">#B86BFF</div></div></div>
+  </div>
+</body></html>

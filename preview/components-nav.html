@@ -1,0 +1,33 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Components — Nav</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body{margin:0;padding:0;background:var(--bg-1);font-family:var(--font-sans);}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:18px 28px;border-bottom:1px solid var(--border-1);}
+  .mark{display:flex;align-items:center;gap:10px;font-weight:500;color:var(--fg-1);letter-spacing:-0.01em;}
+  .mark .dot{width:18px;height:18px;border-radius:999px;background:var(--gradient-accent);}
+  .links{display:flex;gap:22px;}
+  .links a{color:var(--fg-2);text-decoration:none;font-size:14px;position:relative;padding:4px 0;}
+  .links a.active{color:var(--fg-1);}
+  .links a.active::after{content:'';position:absolute;left:0;right:0;bottom:-6px;height:2px;background:var(--gradient-accent);border-radius:2px;}
+  .links a:hover{color:var(--fg-1);}
+  .cta{font-size:13px;font-weight:500;padding:8px 14px;border-radius:999px;border:1px solid var(--border-2);color:var(--fg-1);background:transparent;cursor:pointer;}
+  .ft{padding:18px 28px;border-top:1px solid var(--border-1);display:flex;justify-content:space-between;font-size:13px;color:var(--fg-3);}
+  .ft a{color:var(--fg-2);text-decoration:none;margin-left:18px;}
+</style></head>
+<body>
+  <nav class="nav">
+    <div class="mark"><span class="dot"></span> Comparison Project</div>
+    <div class="links">
+      <a href="#" class="active">work</a>
+      <a href="#">about</a>
+      <a href="#">writing</a>
+      <a href="#">contact</a>
+    </div>
+    <button class="cta">Get in touch</button>
+  </nav>
+  <div style="height:28px"></div>
+  <footer class="ft">
+    <span>© 2026 — a quiet portfolio</span>
+    <span><a href="#">github</a><a href="#">read.cv</a><a href="#">email</a></span>
+  </footer>
+</body></html>

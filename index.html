@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Lucas Lu — Design Projects</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="colors_and_type.css">
+  <style>
+    body { margin: 0; }
+    a { text-decoration: none; color: inherit; }
+    .card {
+      display: block;
+      padding: 36px 40px;
+      background: var(--bg-1);
+      border: 1px solid var(--border-1);
+      border-radius: var(--r-lg);
+      transition: all var(--dur-med) var(--ease-out);
+      cursor: pointer;
+    }
+    .card:hover {
+      background: var(--bg-2);
+      box-shadow: var(--shadow-2);
+      transform: translateY(-2px);
+    }
+    .card:hover .arrow { transform: translate(3px, -3px); }
+    .arrow { transition: transform var(--dur-fast) var(--ease-out); display: inline-block; }
+  </style>
+</head>
+<body style="min-height:100vh; background:var(--bg-1);">
+
+  <nav style="display:flex; align-items:center; justify-content:space-between; padding:22px 48px; border-bottom:1px solid var(--border-1);">
+    <span style="display:inline-flex; align-items:center; gap:10;">
+      <span style="width:18px; height:18px; border-radius:999px; background:var(--gradient-accent);"></span>
+      <span style="font-weight:500; letter-spacing:-0.01em; color:var(--fg-1);">Lucas Lu</span>
+    </span>
+    <div style="display:flex; align-items:center; gap:10;">
+      <a href="https://www.linkedin.com/in/lucas-lu6978" target="_blank" rel="noopener noreferrer"
+         style="color:var(--fg-3); display:flex; align-items:center; transition:color var(--dur-fast);"
+         onmouseover="this.style.color='var(--fg-1)'" onmouseout="this.style.color='var(--fg-3)'">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+        </svg>
+      </a>
+      <a href="https://github.com/nothd7561" target="_blank" rel="noopener noreferrer"
+         style="color:var(--fg-3); display:flex; align-items:center; transition:color var(--dur-fast);"
+         onmouseover="this.style.color='var(--fg-1)'" onmouseout="this.style.color='var(--fg-3)'">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2C6.477 2 2 6.484 2 12.021c0 4.428 2.865 8.184 6.839 9.504.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.154-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.026 2.747-1.026.546 1.378.202 2.397.1 2.65.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482C19.138 20.2 22 16.447 22 12.021 22 6.484 17.523 2 12 2z"/>
+        </svg>
+      </a>
+    </div>
+  </nav>
+
+  <section style="padding:72px 48px 56px; max-width:1200px; margin:0 auto;">
+    <div style="font-size:12px; color:var(--fg-3); letter-spacing:0.08em; text-transform:uppercase; font-weight:500;">Design & Engineering · 2026</div>
+    <h1 style="font-size:56px; font-weight:300; letter-spacing:-0.03em; line-height:1.05; margin-top:18px; color:var(--fg-1); max-width:14em;">
+      Projects built with <span style="background:var(--gradient-accent); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">data and design</span> in mind.
+    </h1>
+    <p style="font-size:17px; color:var(--fg-2); margin-top:24px; max-width:38em; line-height:1.65;">
+      A collection of interactive tools and UI experiments. Each project is open source — source on GitHub.
+    </p>
+  </section>
+
+  <section style="padding:0 48px 96px; max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:24px;">
+
+    <a href="comparison/index.html" class="card">
+      <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+        <div style="font-size:11px; color:var(--fg-4); font-family:var(--font-mono); letter-spacing:0.06em; text-transform:uppercase;">Data Viz · 2026</div>
+        <span class="arrow" style="font-size:18px; color:var(--fg-3);">↗</span>
+      </div>
+      <h2 style="font-size:26px; font-weight:400; letter-spacing:-0.02em; color:var(--fg-1); margin-top:20px; margin-bottom:0;">LLM Comparison Tool</h2>
+      <p style="font-size:14px; color:var(--fg-3); margin-top:12px; line-height:1.65;">
+        Compare any two language models across Intel, Code, and Math benchmarks — plus speed, latency, pricing, and context length. Animated bar charts and radar overlay.
+      </p>
+      <div style="display:flex; gap:8px; margin-top:24px; flex-wrap:wrap;">
+        <span style="font-size:11px; color:var(--fg-3); font-family:var(--font-mono); padding:4px 10px; border:1px solid var(--border-1); border-radius:999px;">React</span>
+        <span style="font-size:11px; color:var(--fg-3); font-family:var(--font-mono); padding:4px 10px; border:1px solid var(--border-1); border-radius:999px;">Artificial Analysis</span>
+        <span style="font-size:11px; color:var(--fg-3); font-family:var(--font-mono); padding:4px 10px; border:1px solid var(--border-1); border-radius:999px;">OpenRouter</span>
+      </div>
+    </a>
+
+    <a href="ui_kits/portfolio/index.html" class="card">
+      <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+        <div style="font-size:11px; color:var(--fg-4); font-family:var(--font-mono); letter-spacing:0.06em; text-transform:uppercase;">UI Kit · 2026</div>
+        <span class="arrow" style="font-size:18px; color:var(--fg-3);">↗</span>
+      </div>
+      <h2 style="font-size:26px; font-weight:400; letter-spacing:-0.02em; color:var(--fg-1); margin-top:20px; margin-bottom:0;">Portfolio UI Kit</h2>
+      <p style="font-size:14px; color:var(--fg-3); margin-top:12px; line-height:1.65;">
+        A full single-page portfolio template with filterable project gallery, project detail view, about, writing, and contact screens. Built on a shared design system.
+      </p>
+      <div style="display:flex; gap:8px; margin-top:24px; flex-wrap:wrap;">
+        <span style="font-size:11px; color:var(--fg-3); font-family:var(--font-mono); padding:4px 10px; border:1px solid var(--border-1); border-radius:999px;">React</span>
+        <span style="font-size:11px; color:var(--fg-3); font-family:var(--font-mono); padding:4px 10px; border:1px solid var(--border-1); border-radius:999px;">Design System</span>
+        <span style="font-size:11px; color:var(--fg-3); font-family:var(--font-mono); padding:4px 10px; border:1px solid var(--border-1); border-radius:999px;">SPA</span>
+      </div>
+    </a>
+
+  </section>
+
+  <footer style="padding:32px 48px; border-top:1px solid var(--border-1); display:flex; justify-content:space-between; font-size:13px; color:var(--fg-3);">
+    <span>© 2026 — A Quiet Portfolio</span>
+    <a href="https://github.com/nothd7561/llm-comparison" target="_blank" rel="noopener noreferrer"
+       style="color:var(--fg-3); font-family:var(--font-mono); transition:color var(--dur-fast);"
+       onmouseover="this.style.color='var(--fg-1)'" onmouseout="this.style.color='var(--fg-3)'">
+      github.com/nothd7561
+    </a>
+  </footer>
+
+</body>
+</html>

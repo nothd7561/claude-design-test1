@@ -1,0 +1,202 @@
+/* ============================================================
+   Comparison Project — Colors & Type tokens
+   Monochrome foundation + single linear-gradient accent.
+   Geometric sans throughout.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  /* -------- Type families -------- */
+  --font-sans: 'Space Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  /* -------- Monochrome scale (paper → ink) -------- */
+  --paper:     #FAFAF7;   /* page background, warm off-white */
+  --bone:      #F2F1EC;   /* subtle card / section background */
+  --mist:      #E6E4DD;   /* dividers, hairlines on light */
+  --ash:       #BDBAB1;   /* muted icons, disabled */
+  --slate:     #6E6B63;   /* secondary text */
+  --graphite:  #3A3832;   /* body text */
+  --ink:       #14130F;   /* headlines, strong ink */
+
+  /* -------- Gradient accent (the one thing that sings) -------- */
+  --accent-a: #FF7A59;    /* coral */
+  --accent-b: #B86BFF;    /* lilac */
+  --accent-c: #5B8CFF;    /* sky */
+  --gradient-accent: linear-gradient(135deg, var(--accent-a) 0%, var(--accent-b) 50%, var(--accent-c) 100%);
+  --gradient-accent-soft: linear-gradient(135deg, #FFE2D8 0%, #E9DAFE 50%, #D9E4FF 100%);
+  --gradient-accent-text: linear-gradient(135deg, #E85A3A 0%, #8A3EE0 55%, #2E63E8 100%); /* for gradient type — readable on paper */
+
+  /* -------- Semantic foreground / background -------- */
+  --fg-1: var(--ink);       /* primary text, headlines */
+  --fg-2: var(--graphite);  /* body */
+  --fg-3: var(--slate);     /* captions, metadata */
+  --fg-4: var(--ash);       /* placeholders, disabled */
+
+  --bg-1: var(--paper);     /* page */
+  --bg-2: var(--bone);      /* raised surface */
+  --bg-3: var(--mist);      /* inset / divider */
+
+  --border-1: var(--mist);
+  --border-2: var(--ash);
+
+  /* -------- Semantic states (muted, not shouty) -------- */
+  --success: #4F8A5B;
+  --warning: #C08A2E;
+  --danger:  #B84A3E;
+
+  /* -------- Spacing scale (4px base) -------- */
+  --sp-0:  2px;
+  --sp-1:  4px;
+  --sp-2:  8px;
+  --sp-3:  12px;
+  --sp-4:  16px;
+  --sp-5:  24px;
+  --sp-6:  32px;
+  --sp-7:  48px;
+  --sp-8:  64px;
+  --sp-9:  96px;
+  --sp-10: 128px;
+
+  /* -------- Radii (soft but not pillowy) -------- */
+  --r-xs:  4px;
+  --r-sm:  8px;
+  --r-md:  12px;
+  --r-lg:  20px;
+  --r-xl:  32px;
+  --r-pill: 999px;
+
+  /* -------- Elevation (very restrained — this is a quiet system) -------- */
+  --shadow-1: 0 1px 2px rgba(20, 19, 15, 0.04), 0 1px 1px rgba(20, 19, 15, 0.03);
+  --shadow-2: 0 4px 12px rgba(20, 19, 15, 0.06), 0 1px 2px rgba(20, 19, 15, 0.04);
+  --shadow-3: 0 18px 40px -12px rgba(20, 19, 15, 0.14), 0 4px 8px rgba(20, 19, 15, 0.04);
+  --shadow-glow: 0 12px 48px -8px rgba(184, 107, 255, 0.25);
+
+  /* -------- Type scale (geometric, generous line-heights) -------- */
+  --size-xs:   12px;
+  --size-sm:   14px;
+  --size-base: 16px;
+  --size-md:   18px;
+  --size-lg:   22px;
+  --size-xl:   28px;
+  --size-2xl:  40px;
+  --size-3xl:  56px;
+  --size-4xl:  80px;
+
+  --leading-tight:   1.1;
+  --leading-snug:    1.25;
+  --leading-normal:  1.5;
+  --leading-relaxed: 1.7;
+
+  --tracking-tight:  -0.02em;
+  --tracking-snug:   -0.01em;
+  --tracking-normal:  0em;
+  --tracking-wide:    0.08em;
+
+  /* -------- Motion (gentle, reflective) -------- */
+  --ease-out:    cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast:    140ms;
+  --dur-med:     240ms;
+  --dur-slow:    420ms;
+}
+
+/* ============================================================
+   Base element styles — drop-in semantic defaults
+   ============================================================ */
+
+html, body {
+  background: var(--bg-1);
+  color: var(--fg-2);
+  font-family: var(--font-sans);
+  font-size: var(--size-base);
+  line-height: var(--leading-normal);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--fg-1);
+  font-weight: 500;
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--leading-tight);
+  margin: 0;
+  text-wrap: balance;
+}
+
+h1 { font-size: var(--size-3xl); font-weight: 400; }
+h2 { font-size: var(--size-2xl); font-weight: 500; }
+h3 { font-size: var(--size-xl);  font-weight: 500; letter-spacing: var(--tracking-snug); }
+h4 { font-size: var(--size-lg);  font-weight: 500; letter-spacing: var(--tracking-snug); }
+h5 { font-size: var(--size-md);  font-weight: 600; letter-spacing: var(--tracking-normal); }
+h6 { font-size: var(--size-sm);  font-weight: 600; letter-spacing: var(--tracking-wide); text-transform: uppercase; color: var(--fg-3); }
+
+p {
+  margin: 0;
+  line-height: var(--leading-relaxed);
+  text-wrap: pretty;
+  color: var(--fg-2);
+}
+
+.display {
+  font-size: var(--size-4xl);
+  font-weight: 300;
+  letter-spacing: -0.03em;
+  line-height: 1.02;
+  color: var(--fg-1);
+}
+
+.eyebrow {
+  font-size: var(--size-xs);
+  font-weight: 500;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--fg-3);
+}
+
+.caption {
+  font-size: var(--size-sm);
+  color: var(--fg-3);
+  line-height: var(--leading-snug);
+}
+
+code, .mono, kbd, pre {
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+}
+
+/* The signature gradient — used sparingly */
+.gradient-text {
+  background: var(--gradient-accent-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.gradient-bg {
+  background: var(--gradient-accent);
+}
+
+.gradient-bg-soft {
+  background: var(--gradient-accent-soft);
+}
+
+/* Hairline rule — core structural element */
+.rule {
+  border: 0;
+  border-top: 1px solid var(--border-1);
+  margin: 0;
+}
+
+/* Focus ring — reflective, not aggressive */
+:focus-visible {
+  outline: 2px solid var(--accent-b);
+  outline-offset: 2px;
+  border-radius: var(--r-xs);
+}
+
+::selection {
+  background: #E9DAFE;
+  color: var(--ink);
+}

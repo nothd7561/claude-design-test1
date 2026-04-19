@@ -1,0 +1,27 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Components — Inputs</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body{margin:0;padding:24px 28px;background:var(--bg-1);font-family:var(--font-sans);display:grid;grid-template-columns:1fr 1fr;gap:20px 28px;}
+  .field{display:flex;flex-direction:column;gap:6px;}
+  label{font-size:12px;color:var(--fg-3);letter-spacing:0.04em;}
+  input,textarea,select{font-family:inherit;font-size:14px;padding:10px 14px;border:1px solid var(--border-2);background:var(--paper);border-radius:var(--r-sm);color:var(--fg-1);transition:border-color var(--dur-fast) var(--ease-out);}
+  input:focus,textarea:focus,select:focus{outline:0;border-color:var(--accent-b);box-shadow:0 0 0 3px rgba(184,107,255,0.12);}
+  .hint{font-size:12px;color:var(--fg-3);}
+  .err{font-size:12px;color:var(--danger);}
+  .chip{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:999px;background:var(--bg-2);font-size:12px;color:var(--fg-2);border:1px solid var(--border-1);}
+  .chip.active{background:var(--ink);color:var(--paper);border-color:var(--ink);}
+  .chips{display:flex;gap:6px;flex-wrap:wrap;}
+</style></head>
+<body>
+  <div class="field"><label>Name</label><input value="Hana" /></div>
+  <div class="field"><label>Email</label><input value="hana@" /><span class="err">That email doesn't look right.</span></div>
+  <div class="field" style="grid-column:1/-1"><label>Message</label><textarea rows="2" placeholder="A few words about what you're working on.">A few words about what you're working on.</textarea></div>
+  <div class="field" style="grid-column:1/-1"><label>Tags</label>
+    <div class="chips">
+      <span class="chip active">data viz</span>
+      <span class="chip">analytics</span>
+      <span class="chip active">graphic design</span>
+      <span class="chip">writing</span>
+    </div>
+  </div>
+</body></html>

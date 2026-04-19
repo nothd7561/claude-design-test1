@@ -1,0 +1,24 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Brand — Logo</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body{margin:0;padding:28px 32px;background:var(--bg-1);display:flex;align-items:center;gap:40px;min-height:220px;}
+  .swap{display:flex;flex-direction:column;gap:8px;align-items:flex-start;}
+  .dark{background:var(--ink);padding:14px 18px;border-radius:var(--r-md);}
+  .dark .wm{color:var(--paper);font-family:var(--font-sans);font-weight:500;letter-spacing:-0.02em;font-size:18px;}
+  .dark .wm .dot{display:inline-block;width:14px;height:14px;border-radius:999px;background:var(--gradient-accent);margin-right:8px;vertical-align:-2px;}
+  .caption{font-size:12px;color:var(--fg-3);letter-spacing:0.08em;text-transform:uppercase;}
+</style></head>
+<body>
+  <div>
+    <div class="caption" style="margin-bottom:12px">Primary lockup</div>
+    <img src="../assets/logo.svg" width="320" height="64" alt="">
+  </div>
+  <div class="swap">
+    <div class="caption">Mark</div>
+    <img src="../assets/mark.svg" width="64" height="64" alt="">
+  </div>
+  <div class="swap">
+    <div class="caption">On ink</div>
+    <div class="dark"><span class="wm"><span class="dot"></span>Comparison Project</span></div>
+  </div>
+</body></html>
