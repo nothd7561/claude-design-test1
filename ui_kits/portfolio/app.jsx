@@ -116,21 +116,6 @@ const PROJECTS = [
     blurb:'Compare any two language models across benchmarks, speed, latency, pricing, and context length. Animated bar charts and radar overlay.',
     tags:['data-viz','react'], accent:'var(--gradient-accent-soft)', featured:true,
     link:'https://nothd7561.github.io/claude-design-test1/comparison/' },
-  { slug:'broadband', year:2025, kind:'Case study', title:'Broadband access & remote work',
-    blurb:'County-level broadband access mapped onto remote-work uptake, pulled from FCC + ACS.',
-    tags:['data-viz','analytics'], accent:'linear-gradient(135deg,#FFE2D8,#FFD4C4)' },
-  { slug:'reading', year:2024, kind:'Dashboard', title:'Three years of reading',
-    blurb:'A small dashboard tracking pace, genre, and abandonment across 2022–2024.',
-    tags:['analytics'], accent:'linear-gradient(135deg,#E9DAFE,#D9E4FF)' },
-  { slug:'typography', year:2023, kind:'Experiment', title:'Grotesk variations',
-    blurb:'Teaching myself variable fonts by animating a grotesque along three axes.',
-    tags:['design'], accent:'linear-gradient(135deg,#D9E4FF,#C4DBFF)' },
-  { slug:'census', year:2023, kind:'Analysis', title:'Notes on the 2020 census',
-    blurb:'A reading of the undercount — with a gentle argument for smaller charts.',
-    tags:['data-viz','analytics'], accent:'linear-gradient(135deg,#F2F1EC,#E6E4DD)' },
-  { slug:'weather', year:2022, kind:'Sketch', title:'A year of weather',
-    blurb:'One tile per day. The tile is a gradient. That\u2019s the whole piece.',
-    tags:['design'], accent:'linear-gradient(135deg,#FFE2D8,#E9DAFE,#D9E4FF)' },
 ];
 
 // ---------- Project card ----------
@@ -204,15 +189,23 @@ const Home = ({ setRoute }) => (
   </main>
 );
 
-const Work = ({ setRoute }) => (
-  <main style={{ padding:'64px 48px', maxWidth:1200, margin:'0 auto' }}>
-    <Eyebrow>Work · {PROJECTS.length} projects</Eyebrow>
-    <h1 style={{ fontSize:56, fontWeight:400, letterSpacing:'-0.02em', marginTop:14, color:'var(--fg-1)' }}>Everything, chronologically.</h1>
-    <div style={{ display:'grid', gridTemplateColumns:'repeat(3,1fr)', gap:24, marginTop:40 }}>
-      {PROJECTS.map(p => <ProjectCard key={p.slug} p={p} onOpen={pp=>setRoute({name:'project', slug:pp.slug})} />)}
-    </div>
-  </main>
-);
+const Work = ({ setRoute }) => {
+  const [filter, setFilter] = useState('all');
+  const tags = ['all', 'data-viz', 'react'];
+  const shown = useMemo(() => filter === 'all' ? PROJECTS : PROJECTS.filter(p => p.tags.includes(filter)), [filter]);
+  return (
+    <main style={{ padding:'64px 48px', maxWidth:1200, margin:'0 auto' }}>
+      <Eyebrow>Work · {PROJECTS.length} project</Eyebrow>
+      <h1 style={{ fontSize:56, fontWeight:400, letterSpacing:'-0.02em', marginTop:14, color:'var(--fg-1)' }}>Everything, chronologically.</h1>
+      <div style={{ display:'flex', gap:8, margin:'40px 0', flexWrap:'wrap' }}>
+        {tags.map(t => <Chip key={t} active={filter===t} onClick={()=>setFilter(t)}>{t}</Chip>)}
+      </div>
+      <div style={{ display:'grid', gridTemplateColumns:'repeat(3,1fr)', gap:24 }}>
+        {shown.map(p => <ProjectCard key={p.slug} p={p} onOpen={pp=>setRoute({name:'project', slug:pp.slug})} />)}
+      </div>
+    </main>
+  );
+};
 
 const BarChart = () => {
   const bars = [30,42,55,48,70,62,88,76,94];
