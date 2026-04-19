@@ -8,6 +8,7 @@
   <style>
     body { margin: 0; }
     a { text-decoration: none; color: inherit; }
+
     .card {
       display: block;
       padding: 36px 40px;
@@ -24,11 +25,27 @@
     }
     .card:hover .arrow { transform: translate(3px, -3px); }
     .arrow { transition: transform var(--dur-fast) var(--ease-out); display: inline-block; }
+
+    .nav       { padding: 22px 48px; }
+    .hero      { padding: 72px 48px 56px; }
+    .grid      { padding: 0 48px 96px; grid-template-columns: 1fr 1fr; }
+    .foot      { padding: 32px 48px; }
+    .hero-h1   { font-size: 56px; }
+
+    @media (max-width: 768px) {
+      .nav       { padding: 16px 20px; }
+      .hero      { padding: 44px 20px 36px; }
+      .hero-h1   { font-size: 36px; }
+      .hero-p    { font-size: 15px !important; }
+      .grid      { padding: 0 20px 64px; grid-template-columns: 1fr !important; }
+      .card      { padding: 24px 22px; }
+      .foot      { padding: 24px 20px; flex-direction: column; gap: 8px; }
+    }
   </style>
 </head>
 <body style="min-height:100vh; background:var(--bg-1);">
 
-  <nav style="display:flex; align-items:center; justify-content:space-between; padding:22px 48px; border-bottom:1px solid var(--border-1);">
+  <nav class="nav" style="display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid var(--border-1);">
     <span style="display:inline-flex; align-items:center; gap:10;">
       <span style="width:18px; height:18px; border-radius:999px; background:var(--gradient-accent);"></span>
       <span style="font-weight:500; letter-spacing:-0.01em; color:var(--fg-1);">Lucas Lu</span>
@@ -51,17 +68,17 @@
     </div>
   </nav>
 
-  <section style="padding:72px 48px 56px; max-width:1200px; margin:0 auto;">
+  <section class="hero" style="max-width:1200px; margin:0 auto;">
     <div style="font-size:12px; color:var(--fg-3); letter-spacing:0.08em; text-transform:uppercase; font-weight:500;">Design & Engineering · 2026</div>
-    <h1 style="font-size:56px; font-weight:300; letter-spacing:-0.03em; line-height:1.05; margin-top:18px; color:var(--fg-1); max-width:14em;">
+    <h1 class="hero-h1" style="font-weight:300; letter-spacing:-0.03em; line-height:1.05; margin-top:18px; color:var(--fg-1); max-width:14em;">
       Projects built with <span style="background:var(--gradient-accent); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">data and design</span> in mind.
     </h1>
-    <p style="font-size:17px; color:var(--fg-2); margin-top:24px; max-width:38em; line-height:1.65;">
+    <p class="hero-p" style="font-size:17px; color:var(--fg-2); margin-top:24px; max-width:38em; line-height:1.65;">
       A collection of interactive tools and UI experiments. Each project is open source — source on GitHub.
     </p>
   </section>
 
-  <section style="padding:0 48px 96px; max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:24px;">
+  <section class="grid" style="max-width:1200px; margin:0 auto; display:grid; gap:24px;">
 
     <a href="comparison/index.html" class="card">
       <div style="display:flex; justify-content:space-between; align-items:flex-start;">
@@ -86,7 +103,7 @@
       </div>
       <h2 style="font-size:26px; font-weight:400; letter-spacing:-0.02em; color:var(--fg-1); margin-top:20px; margin-bottom:0;">Portfolio UI Kit</h2>
       <p style="font-size:14px; color:var(--fg-3); margin-top:12px; line-height:1.65;">
-        A full single-page portfolio template with filterable project gallery, project detail view, about, writing, and contact screens. Built on a shared design system.
+        A full single-page portfolio template with project gallery, about, writing, and contact screens. Built on a shared design system.
       </p>
       <div style="display:flex; gap:8px; margin-top:24px; flex-wrap:wrap;">
         <span style="font-size:11px; color:var(--fg-3); font-family:var(--font-mono); padding:4px 10px; border:1px solid var(--border-1); border-radius:999px;">React</span>
@@ -97,9 +114,9 @@
 
   </section>
 
-  <footer style="padding:32px 48px; border-top:1px solid var(--border-1); display:flex; justify-content:space-between; font-size:13px; color:var(--fg-3);">
-    <span>© 2026 — A Quiet Portfolio</span>
-    <a href="https://github.com/nothd7561/llm-comparison" target="_blank" rel="noopener noreferrer"
+  <footer class="foot" style="border-top:1px solid var(--border-1); display:flex; justify-content:space-between; font-size:13px; color:var(--fg-3);">
+    <span>© 2026 — Lucas Lu</span>
+    <a href="https://github.com/nothd7561" target="_blank" rel="noopener noreferrer"
        style="color:var(--fg-3); font-family:var(--font-mono); transition:color var(--dur-fast);"
        onmouseover="this.style.color='var(--fg-1)'" onmouseout="this.style.color='var(--fg-3)'">
       github.com/nothd7561
