@@ -240,7 +240,7 @@ const BarChart = ({ a, b, playKey, active }) => {
                 </button>
                 <span style={{ fontSize:12, color:'var(--fg-3)' }}>{m.note}</span>
               </div>
-              <div style={{ fontFamily:'var(--font-mono)', fontSize:11, color: active ? 'var(--fg-3)' : 'var(--fg-4)' }}>
+              <div className="bar-raw" style={{ fontFamily:'var(--font-mono)', fontSize:11, color: active ? 'var(--fg-3)' : 'var(--fg-4)' }}>
                 {active ? `${a.raw[m.key]} · ${b.raw[m.key]}` : '— · —'}
               </div>
             </div>
@@ -347,7 +347,7 @@ const Legend = ({ a, b, leadsA, leadsB, active }) => {
     padding:'14px 18px', minWidth:180,
   };
   return (
-    <div style={{ display:'flex', gap:32, alignItems:'center', padding:'20px 24px', background:'var(--bg-2)', borderRadius:'var(--r-md)' }}>
+    <div className="legend" style={{ display:'flex', gap:32, alignItems:'center', padding:'20px 24px', background:'var(--bg-2)', borderRadius:'var(--r-md)' }}>
       <div style={{ display:'flex', alignItems:'center', gap:10 }}>
         <span style={{ width:14, height:14, borderRadius:999, background:COLOR_A }}/>
         <span style={{ fontSize:14, fontWeight:500, color:'var(--fg-1)' }}>{a.label}</span>
@@ -357,7 +357,7 @@ const Legend = ({ a, b, leadsA, leadsB, active }) => {
         <span style={{ fontSize:14, fontWeight:500, color:'var(--fg-1)' }}>{b.label}</span>
       </div>
       <div style={{ flex:1 }}/>
-      <div style={{ fontSize:13, color:'var(--fg-3)', fontFamily:'var(--font-mono)', display:'flex', alignItems:'center', gap:6, position:'relative' }}>
+      <div className="legend-score" style={{ fontSize:13, color:'var(--fg-3)', fontFamily:'var(--font-mono)', display:'flex', alignItems:'center', gap:6, position:'relative' }}>
         {!active ? (
           <span style={{ color:'var(--fg-4)' }}>Press Compare to see results</span>
         ) : (
@@ -436,13 +436,13 @@ const App = () => {
 
   return (
     <div style={{ minHeight:'100vh', background:'var(--bg-1)' }}>
-      <nav style={{
+      <nav className="nav" style={{
         display:'flex', alignItems:'center', justifyContent:'space-between',
         padding:'22px 48px', borderBottom:'1px solid var(--border-1)',
       }}>
         <div style={{ display:'flex', alignItems:'center', gap:16 }}>
           <Mark/>
-          <span style={{ fontSize:12, color:'var(--fg-4)', fontFamily:'var(--font-mono)', letterSpacing:'0.02em' }}>— Engineered and Designed by Lucas Lu</span>
+          <span className="nav-byline" style={{ fontSize:12, color:'var(--fg-4)', fontFamily:'var(--font-mono)', letterSpacing:'0.02em' }}>— Engineered and Designed by Lucas Lu</span>
         </div>
         <div style={{ display:'flex', alignItems:'center', gap:10 }}>
           <a href="https://www.linkedin.com/in/lucas-lu6978" target="_blank" rel="noopener noreferrer"
@@ -464,33 +464,33 @@ const App = () => {
         </div>
       </nav>
 
-      <section style={{ padding:'72px 48px 40px', maxWidth:1200, margin:'0 auto' }}>
+      <section className="section section-hero" style={{ padding:'72px 48px 40px', maxWidth:1200, margin:'0 auto' }}>
         <Eyebrow>A data-viz study · 2026</Eyebrow>
-        <h1 style={{ fontSize:64, fontWeight:300, letterSpacing:'-0.03em', lineHeight:1.05, marginTop:18, color:'var(--fg-1)', maxWidth:'14em' }}>
+        <h1 className="hero-title" style={{ fontSize:64, fontWeight:300, letterSpacing:'-0.03em', lineHeight:1.05, marginTop:18, color:'var(--fg-1)', maxWidth:'14em' }}>
           Compare two <span className="gradient-text">language models</span>, quietly.
         </h1>
         <div style={{ marginTop:36, display:'flex', flexDirection:'column', gap:18, maxWidth:'42em' }}>
-          <div style={{ display:'flex', alignItems:'baseline', gap:32 }}>
+          <div className="info-row" style={{ display:'flex', alignItems:'baseline', gap:32 }}>
             <span style={{ fontSize:11, color:'var(--fg-4)', fontFamily:'var(--font-mono)', letterSpacing:'0.08em', textTransform:'uppercase', minWidth:90 }}>Benchmarks</span>
             <span style={{ fontSize:15, color:'var(--fg-2)' }}>Intel Index · Code Index · Math Index</span>
-            <span style={{ fontSize:11, color:'var(--fg-4)', fontFamily:'var(--font-mono)', marginLeft:'auto' }}>Artificial Analysis</span>
+            <span className="info-source" style={{ fontSize:11, color:'var(--fg-4)', fontFamily:'var(--font-mono)', marginLeft:'auto' }}>Artificial Analysis</span>
           </div>
           <div style={{ height:1, background:'var(--border-1)' }}/>
-          <div style={{ display:'flex', alignItems:'baseline', gap:32 }}>
+          <div className="info-row" style={{ display:'flex', alignItems:'baseline', gap:32 }}>
             <span style={{ fontSize:11, color:'var(--fg-4)', fontFamily:'var(--font-mono)', letterSpacing:'0.08em', textTransform:'uppercase', minWidth:90 }}>Performance</span>
             <span style={{ fontSize:15, color:'var(--fg-2)' }}>Output Speed · Latency · Pricing · Context</span>
-            <span style={{ fontSize:11, color:'var(--fg-4)', fontFamily:'var(--font-mono)', marginLeft:'auto' }}>OpenRouter</span>
+            <span className="info-source" style={{ fontSize:11, color:'var(--fg-4)', fontFamily:'var(--font-mono)', marginLeft:'auto' }}>OpenRouter</span>
           </div>
           <div style={{ height:1, background:'var(--border-1)' }}/>
-          <div style={{ display:'flex', alignItems:'baseline', gap:32 }}>
+          <div className="info-row" style={{ display:'flex', alignItems:'baseline', gap:32 }}>
             <span style={{ fontSize:11, color:'var(--fg-4)', fontFamily:'var(--font-mono)', letterSpacing:'0.08em', textTransform:'uppercase', minWidth:90 }}>Scale</span>
             <span style={{ fontSize:15, color:'var(--fg-2)' }}>All normalised 0–100 · Raw values on hover</span>
           </div>
         </div>
       </section>
 
-      <section style={{ padding:'0 48px', maxWidth:1200, margin:'0 auto' }}>
-        <div style={{
+      <section className="section" style={{ padding:'0 48px', maxWidth:1200, margin:'0 auto' }}>
+        <div className="selector-grid" style={{
           display:'grid', gridTemplateColumns:'1fr 1fr auto', gap:24, alignItems:'flex-end',
           padding:28, background:'var(--bg-2)', borderRadius:'var(--r-lg)',
         }}>
@@ -509,11 +509,11 @@ const App = () => {
         </div>
       </section>
 
-      <section style={{ padding:'32px 48px 0', maxWidth:1200, margin:'0 auto' }}>
+      <section className="section" style={{ padding:'32px 48px 0', maxWidth:1200, margin:'0 auto' }}>
         <Legend a={a} b={b} leadsA={leads.a} leadsB={leads.b} active={active}/>
       </section>
 
-      <section style={{ padding:'40px 48px 96px', maxWidth:1200, margin:'0 auto',
+      <section className="section charts-grid" style={{ padding:'40px 48px 96px', maxWidth:1200, margin:'0 auto',
                         display:'grid', gridTemplateColumns:'1.25fr 1fr', gap:64, alignItems:'flex-start' }}>
         <div>
           <Eyebrow>Benchmarks · normalised 0–100 · raw on hover</Eyebrow>
@@ -521,7 +521,7 @@ const App = () => {
             <BarChart a={a} b={b} playKey={playKey} active={active}/>
           </div>
         </div>
-        <div style={{ position:'sticky', top:32 }}>
+        <div className="radar-col" style={{ position:'sticky', top:32 }}>
           <Eyebrow>Radar · shape at a glance</Eyebrow>
           <div style={{ marginTop:16 }}>
             <RadarChart a={a} b={b} playKey={playKey} active={active}/>
@@ -532,7 +532,7 @@ const App = () => {
         </div>
       </section>
 
-      <footer style={{
+      <footer className="footer section" style={{
         padding:'32px 48px', borderTop:'1px solid var(--border-1)',
         display:'flex', justifyContent:'space-between', fontSize:13, color:'var(--fg-3)',
       }}>
